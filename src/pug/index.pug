@@ -1,0 +1,20 @@
+- var title='diwamoto.dev'
+- var description='My Portfolio.'
+- var domain='diwamoto.dev'
+doctype html
+html(lang='ja')
+    head
+        meta(charset="utf-8")
+        meta(name="viewport",content="width=device-width,initial-scale=1.0")
+        title #{title}
+        meta(name="description" content=`${description}`)
+        meta(property="og:title" content=`${title}`)
+        meta(property="og:description" content=`${description}`)
+        meta(property="og:image" content="/src/img/ogp.png")
+        meta(property="og:url" content=`${domain}`)
+        meta(property="og:type" content="website")
+        meta(name="twitter:card" content="summary_large_image")
+        link(rel='icon', sizes='16x16 32x32 48x48 64x64', href='/src/img/favicon.ico')
+        link(rel='apple-touch-icon-precomposed', href='/src/img/apple-touch-icon.png')
+    body
+        h1#message 準備中 
