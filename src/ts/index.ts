@@ -1,2 +1,4 @@
 import '/src/scss/style.scss';
-document.write("test")
+import '/src/img/apple-touch-icon.png';
+import '/src/img/ogp.png';
+document.write("test");

@@ -1,22 +1,24 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const SCSS_PATH = path.join(__dirname, './src/scss');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const TS_PATH = path.join(__dirname, './src/ts');
 const PUG_PATH = path.join(__dirname, './src/pug');
+const IMG_PATH = path.join(__dirname, "./src/img");
 
 module.exports = {
     entry: TS_PATH + '/index.ts',
     output: {
-        path: path.resolve(__dirname, 'dist')
+        path: path.resolve(__dirname, 'dist'),
+        clean: true,
     },
     module: {
-        rules: [
-            {
+        rules: [{
                 test: /.(jpe?g|png|gif|svg|ico)/,
                 use: [{
                     loader: "url-loader",
                     options: {
                         name: '[name].[ext]',
+                        outputPath: 'img',
                         limit: 1,
                     },
                 }, ]
@@ -70,7 +72,9 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: PUG_PATH + '/index.pug',
             filename: 'index.html',
-            minify: 'false'
+            minify: 'false',
+            favicon: IMG_PATH + '/favicon.ico',
         }),
+        new CleanWebpackPlugin(),
     ]
 }
