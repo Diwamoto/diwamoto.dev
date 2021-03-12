@@ -1,3 +1,4 @@
-# Diwamoto.github.io
+# diwamoto.dev
 
-next.jsを使いたいので多分使いませんが、もしreactが静的サイト書き出しできそうであればVarcelではなくこっちにデプロイするかもしれません。
+自己紹介サイトです。
+pugとtypescriptとscssをコンパイルしてhtmlとjsにしてvarcelでデプロイしてます。
