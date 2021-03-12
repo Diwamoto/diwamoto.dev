@@ -1,19 +1,36 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const {
+    CleanWebpackPlugin
+} = require('clean-webpack-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const TS_PATH = path.join(__dirname, './src/ts');
 const PUG_PATH = path.join(__dirname, './src/pug');
+const SCSS_PATH = path.join(__dirname, './src/scss');
 const IMG_PATH = path.join(__dirname, "./src/img");
 
 module.exports = {
+    mode: 'production',
     entry: TS_PATH + '/index.ts',
     output: {
         path: path.resolve(__dirname, 'dist'),
         clean: true,
     },
+    devServer: {
+        contentBase: path.join(__dirname, 'src'),
+        port: 3000,
+        open: true
+    },
+    cache: {
+        type: 'filesystem',
+        buildDependencies: {
+            config: [__filename]
+        }
+    },
     module: {
         rules: [{
                 test: /.(jpe?g|png|gif|svg|ico)/,
+                include: path.resolve(__dirname, 'src'),
                 use: [{
                     loader: "url-loader",
                     options: {
@@ -26,10 +43,11 @@ module.exports = {
             {
                 test: /\.ts$/,
                 use: 'ts-loader',
-                exclude: /node_module/
+                include: TS_PATH,
             },
             {
                 test: /\.pug$/,
+                include: PUG_PATH,
                 use: [{
                         loader: 'html-loader',
                     },
@@ -42,23 +60,26 @@ module.exports = {
                 ]
             },
             {
-                test: /\.html$/,
-                loader: 'html-loader'
-            },
-            {
                 test: /\.scss$/,
+                include: SCSS_PATH,
                 use: [{
-                        loader: 'style-loader',
+                        loader: MiniCssExtractPlugin.loader,
                     },
                     {
                         loader: 'css-loader',
+                        options: {
+                            url: false,
+                            sourceMap: true,
+                        },
                     },
                     {
                         loader: 'sass-loader',
                         options: {
                             sassOptions: {
                                 outputStyle: 'expanded',
+                                fiber: require('fibers'),
                             },
+                            sourceMap: true,
                         },
                     },
                 ]
@@ -66,7 +87,9 @@ module.exports = {
         ]
     },
     resolve: {
-        extensions: ['.ts', '.js']
+        extensions: ['.ts', '.js'],
+        cacheWithContext: false,
+        symlinks: false
     },
     plugins: [
         new HtmlWebpackPlugin({
@@ -76,5 +99,13 @@ module.exports = {
             favicon: IMG_PATH + '/favicon.ico',
         }),
         new CleanWebpackPlugin(),
-    ]
+        new MiniCssExtractPlugin({
+            filename: "style.css",
+        }),
+    ],
+    watchOptions: {
+        ignored: /node_modules/
+    },
+    performance: { hints: false }
+
 }
