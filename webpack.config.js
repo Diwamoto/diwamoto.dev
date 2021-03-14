@@ -15,6 +15,7 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, 'dist'),
         clean: true,
+        assetModuleFilename: "img/[name][ext]",
     },
     devServer: {
         contentBase: path.join(__dirname, 'src'),
@@ -31,14 +32,12 @@ module.exports = {
         rules: [{
                 test: /.(jpe?g|png|gif|svg|ico)/,
                 include: path.resolve(__dirname, 'src'),
-                use: [{
-                    loader: "url-loader",
-                    options: {
-                        name: '[name].[ext]',
-                        outputPath: 'img',
-                        limit: 1,
+                type: "asset",
+                parser: {
+                    dataUrlCondition: {
+                        maxSize: 10 * 1024,
                     },
-                }, ]
+                },
             },
             {
                 test: /\.ts$/,
@@ -54,7 +53,7 @@ module.exports = {
                     {
                         loader: 'pug-html-loader',
                         options: {
-                            pretty: true,
+                            pretty: false,
                         },
                     },
                 ]
@@ -87,7 +86,10 @@ module.exports = {
         ]
     },
     resolve: {
-        extensions: ['.ts', '.js'],
+        modules: ["node_modules"],
+        alias: {
+            '@': path.join(__dirname, './src'),
+        },
         cacheWithContext: false,
         symlinks: false
     },
@@ -106,6 +108,8 @@ module.exports = {
     watchOptions: {
         ignored: /node_modules/
     },
-    performance: { hints: false }
+    performance: {
+        hints: false
+    }
 
 }
