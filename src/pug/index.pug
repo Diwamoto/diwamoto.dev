@@ -15,14 +15,23 @@ html(lang='ja')
     meta(property="og:type" content="website")
     meta(name="twitter:card" content="summary_large_image")
     link(rel='apple-touch-icon-precomposed', src=`https://${domain}/img/apple-touch-icon.png`)
+    link(rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons")
   body
     .main_image
-    .section
-      .icon: img(src="/src/img/profile_icon.jpg")
-      h1.title Daiki Iwamoto 
-      h2.subtitle 
-    .section
+      h1.title Diwamoto's Portfolio
+      h2.subtitle If you do it, it will happen. If you dont, you won't do it.
+    .section#Profile
+      .section_title Profile
+      .profile_icon: img(src="/src/img/profile_icon.jpg")
+      .profile_name Daiki Iwamoto 
+      .profile_content 岩本大樹といいます。
+    .section#Skill
+      .section_title Skill
       .test aaa
+    .section#History
+      .section_title History
+      .test aaa
+
         
         
 

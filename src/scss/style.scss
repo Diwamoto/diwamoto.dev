@@ -4,9 +4,8 @@
 
 body {
   margin: 0;
-  font-family: -apple-system, "BlinkMacSystemFont", "Helvetica Neue",
+  font-family: "Hiragino Kaku Gothic ProN", -apple-system, "BlinkMacSystemFont", "Helvetica Neue",
     Arial,
-    "Hiragino Kaku Gothic ProN",
     "Hiragino Sans",
     Meiryo,
     sans-serif,
@@ -15,42 +14,67 @@ body {
 }
 
 .main_image {
-  background: url("/src/img/top.jpeg") top center / cover no-repeat;
+  background-image: url("/src/img/top.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
   width: 100%;
   overflow: hidden;
-  filter: brightness(50%);
   height: 100vh;
   text-align: center;
-}
-
-.section {
-
-  padding: 0 10% 0 10%;
-
-  border-width: 0 0 1px 0;
-  border-style: solid;
-  border-color: #a0a0a0;
 
   .title {
+    animation: top_title;
+    animation-duration: 1s;
+    margin-top: 35vh;
+    color: white;
     font-size: 3em;
     font-weight: 400;
     text-align: center;
   }
 
   .subtitle {
+    animation: top_title;
+    animation-duration: 1s;
+    color: white;
+    font-size: 2em;
+    font-weight: 300;
     text-align: center;
   }
+}
+
+@keyframes top_title {
+  0% {
+    opacity: 0%;
+    transform: translateY(-25px);
+  }
+
+  100% {
+    opacity: 100%;
+    transform: translateY(0px);
+  }
+}
 
 
+.section {
+  padding: 0 20vw 0 20vw;
+  border-width: 0 0 1px 0;
+  border-style: solid;
+  border-color: #a0a0a0;
 
-  .icon {
+  .section_title {
+    text-align: center;
+    font-size: 40px;
+    font-weight: 400;
+  }
+
+  .profile_icon {
     margin-top: 3%;
     text-align: center;
 
     img {
       border-radius: 50%;
       width: 150px;
-
     }
   }
 }
