@@ -1,4 +1,9 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
+  margin: 0;
   font-family: -apple-system, "BlinkMacSystemFont", "Helvetica Neue",
     Arial,
     "Hiragino Kaku Gothic ProN",
@@ -9,12 +14,43 @@ body {
   background: #FFECCD;
 }
 
-.title{
-  font-size: 3em;
-  font-weight: 800;
-  margin-top: 20vh;
+.main_image {
+  background: url("/src/img/top.jpeg") top center / cover no-repeat;
+  width: 100%;
+  overflow: hidden;
+  filter: brightness(50%);
+  height: 100vh;
   text-align: center;
 }
-.subtitle{
-  text-align: center;
+
+.section {
+
+  padding: 0 10% 0 10%;
+
+  border-width: 0 0 1px 0;
+  border-style: solid;
+  border-color: #a0a0a0;
+
+  .title {
+    font-size: 3em;
+    font-weight: 400;
+    text-align: center;
+  }
+
+  .subtitle {
+    text-align: center;
+  }
+
+
+
+  .icon {
+    margin-top: 3%;
+    text-align: center;
+
+    img {
+      border-radius: 50%;
+      width: 150px;
+
+    }
+  }
 }

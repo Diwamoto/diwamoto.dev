@@ -67,9 +67,11 @@ module.exports = {
                     {
                         loader: 'css-loader',
                         options: {
-                            url: false,
                             sourceMap: true,
                         },
+                    },
+                    {
+                        loader: "resolve-url-loader"
                     },
                     {
                         loader: 'sass-loader',
