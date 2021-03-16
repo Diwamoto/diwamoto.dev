@@ -16,19 +16,21 @@ html(lang='ja')
     meta(name="twitter:card" content="summary_large_image")
     link(rel='apple-touch-icon-precomposed', src=`https://${domain}/img/apple-touch-icon.png`)
     link(rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons")
+    link(rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+JP")
   body
     .main_image
-      h1.title Diwamoto's Portfolio
+      h1.title Diwamoto
       h2.subtitle If you do it, it will happen. If you dont, you won't do it.
-    .section#Profile
+    .section#profile
       .section_title Profile
-      .profile_icon: img(src="/src/img/profile_icon.jpg")
-      .profile_name Daiki Iwamoto 
-      .profile_content 岩本大樹といいます。
-    .section#Skill
+      .profile_wrapper
+        .profile_icon: img(src="/src/img/profile_icon.jpg")
+        .profile_name Daiki Iwamoto 
+        .profile_content 岩本大樹といいます。九州工業大学 情報工学部 知能情報工学科を卒業して、株式会社アウトソーシングテクノロジーに就職しました。大学では情報技術者となる為、コンピュータの仕組みや動作、プログラムがどうやって動くかなどの基礎的な部分から、C言語やSQLなど、実際のシステム開発に必要な知識までを広く学びました。
+    .section#skill
       .section_title Skill
       .test aaa
-    .section#History
+    .section#history
       .section_title History
       .test aaa
 

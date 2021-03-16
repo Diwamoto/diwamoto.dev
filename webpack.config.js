@@ -66,9 +66,6 @@ module.exports = {
                     },
                     {
                         loader: 'css-loader',
-                        options: {
-                            sourceMap: true,
-                        },
                     },
                     {
                         loader: "resolve-url-loader"
@@ -80,7 +77,6 @@ module.exports = {
                                 outputStyle: 'expanded',
                                 fiber: require('fibers'),
                             },
-                            sourceMap: true,
                         },
                     },
                 ]
