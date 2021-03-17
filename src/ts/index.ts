@@ -3,4 +3,3 @@ import '/src/img/apple-touch-icon.png';
 import '/src/img/ogp.png';
 import '/src/img/profile_icon.jpg';
 import '/src/img/top.jpeg';
-document.write("test");
