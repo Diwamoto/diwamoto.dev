@@ -1,0 +1,13 @@
+.footer{
+    height: 100px;
+    background-color: #303030;
+
+    .links{
+        div[class*="link_"] a{
+            float: left;
+            margin: 10px 1vw 10px 1vw;
+            color: white;
+            text-decoration: none;
+        }
+    }
+}

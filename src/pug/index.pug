@@ -1,6 +1,7 @@
 - var title='diwamoto.dev'
 - var description='My Portfolio.'
 - var domain='diwamoto.dev'
+- var lists=[{name:"github",url:"https://github.com/diwamoto"},{name:"twitter",url:"https://twitter.com/Diwamoto_"},{name:"facebook",url:"https://www.facebook.com/profile.php?id=100045347584995"},{name:"zenn",url:"https://zenn.dev/diwamoto"},{name:"mail",url:"mailto:daiki.work.0118@gmail.com"}];
 doctype html
 html(lang='ja')
   head
@@ -19,22 +20,31 @@ html(lang='ja')
     link(rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+JP")
   body
     .main_image
-      h1.title Diwamoto
-      h2.subtitle If you do it, it will happen. If you dont, you won't do it.
+      .main_title_box 
+        .title Diwamoto
+        .subtitle If you do it, it will happen. If you dont, you won't do it.
+        .subtitle - 為せば成る。為さねば成らぬ。-
     .section#profile
       .section_title Profile
       .profile_wrapper
         .profile_icon: img(src="/src/img/profile_icon.jpg")
-        .profile_content 岩本大樹といいます。九州工業大学 情報工学部 知能情報工学科を卒業して、新卒で株式会社アウトソーシングテクノロジーに就職しました。
-         | 大学四年の時に株式会社キャッチアップにアルバイトとして入社し、主にPHPを扱って開発、テスト業務を行っていました。また、BaserCMSにも少しだけコミットしました。
+        .profile_content_name 岩本大樹
+        .profile_content_edu 九州工業大学 情報工学部 知能情報工学科 卒業
+        .profile_content_birthday 1998/1/18
+        .profile_content_other 新卒で株式会社アウトソーシングテクノロジーに就職しました。<br>
+         | 大学四年の時に株式会社キャッチアップにアルバイトとして入社し、主にPHPを扱って開発、テスト業務を行っていました。またそこでBaserCMSと出会い、OSSを知りました。<br>
          | 小学校から大学四年でキャッチアップでアルバイトするまで12年間野球をしてました。大学では六大学リーグに所属し、福岡のヤフオクドームで試合をしたりしました。
-         | 現在は受託系企業に転職すべく活動中です。
-         | 趣味はコードを書くことと、ゲームをすることと、キーボードを作ることです。
+         | 受託開発企業に転職すべく活動中です。<br>
+         | コードを書いたり、ゲームをしたり、キーボードを作ったりすることが好きです。
     .section#skill
       .section_title Skill
-      .test aaa
+      
     .section#works 
       .section_title Works
     .section#history
       .section_title History
       .test aaa
+    .footer
+      .links
+        each list, index in lists
+          div(class="link_" + list.name): a(href=list.url target="_blank")=list.name
