@@ -1,13 +1,50 @@
-.footer{
-    height: 100px;
-    background-color: #303030;
+.footer {
 
-    .links{
-        div[class*="link_"] a{
-            float: left;
-            margin: 10px 1vw 10px 1vw;
-            color: white;
-            text-decoration: none;
+    height: 200px;
+    width: 100%;
+    padding-bottom: 50px;
+    background-color: #404040;
+
+    .footer_title {
+
+        color: white;
+        text-align: center;
+        font-size: 40px;
+        font-weight: 400;
+    }
+
+    .links {
+
+        display: flex;
+        justify-content: center;
+
+        width: 100%;
+        margin: 0 auto 50px auto;
+
+        div[class*="link_"]:not(div[class="link_Zenn"]) {
+
+            text-align: center;
+
+            margin: 50px 3vw;
+            width: 100px;
+            
+            //logo
+            img{
+                filter: invert(100);
+                width: 40px;
+            }
+        }
+
+        .link_Zenn{
+            text-align: center;
+
+            margin: 50px 3vw;
+            width: 100px;
+            
+            //logo
+            img{
+                width: 40px;
+            }
         }
     }
 }
