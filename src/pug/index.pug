@@ -17,7 +17,10 @@ html(lang='ja')
     meta(name="twitter:card" content="summary_large_image")
     link(rel='apple-touch-icon-precomposed', src=`https://${domain}/img/apple-touch-icon.png`)
     link(rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons")
-    link(rel="stylesheet" href="https://fonts.googleapis.com/css?family=Gothic+A1:wght@500&family=Lato:wght@300&family=Noto+Sans+JP&family=Slabo+13px")
+    link(rel="stylesheet" href="https://fonts.googleapis.com/css?family=Gothic+A1")
+    link(rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato")
+    link(rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+JP")
+    link(rel="stylesheet" href="https://fonts.googleapis.com/css?family=Slabo+13px")
   body
     .main_image
       .main_title_box 
@@ -37,12 +40,11 @@ html(lang='ja')
         .profile_other その他
           .profile_other_content 新卒で株式会社アウトソーシングテクノロジーに就職しました。<br>
            | 大学四年の時に株式会社キャッチアップにアルバイトとして入社し、主にPHPを扱って開発、テスト業務を行っていました。またそこでBaserCMSと出会い、OSSを知りました。<br>
-           | 小学校から大学四年でキャッチアップでアルバイトするまで12年間野球をしてました。大学では六大学リーグに所属し、福岡のヤフオクドームで試合をしたりしました。
+           | 小学校から大学四年まで野球をしてました。大学では六大学リーグに所属し、福岡のヤフオクドームで試合をしたりしました。
            | 受託開発企業に転職すべく活動中です。<br>
            | コードを書いたり、ゲームをしたり、キーボードを作ったりすることが好きです。
     .section#skill
       .section_title Skill
-      
     .section#works 
       .section_title Works
     .section#history
@@ -52,16 +54,21 @@ html(lang='ja')
       .section_title Contact
       form.contact_form
         .form_input_item
-          label(for="input_email") Email
-          input(class="input_email" pattern="^[a-z]+@[a-z]+\.[a-z]+$" required)
+          input(name="name" class="input_name" placeholder="Name" pattern="^[a-z]+@[a-z]+\.[a-z]+$" required)
+          .underline
         .form_input_item
-          label(for="input_content") Content
-          textarea(class="input_content" required)
-        button.submit 送信する
+          input(name="email" class="input_email" placeholder="Email" pattern="^[a-z]+@[a-z]+\.[a-z]+$" required)
+          .underline
+        .form_input_item
+          textarea(name="content" class="input_content" placeholder="Content" rows="4" cols="40" required)
+          .underline
+        button.submit Submit
     .footer
       .footer_title Links
       .links
         each list, index in lists
           div(class="link_" + list.name)
             a(href=list.url target="_blank"): img(class="link_logo_" + list.name src="/src/img/links/" + list.icon + ".png")
+      .copyright Copyright © 2021 Diwamoto.
+        
             

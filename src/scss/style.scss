@@ -86,7 +86,7 @@ body {
         animation: top_title;
         animation-duration: 1s;
         color: white;
-        font-size: 3.5em;
+        font-size: 3.4em;
         text-align: center;
         margin-bottom: 40px;
       }
@@ -123,10 +123,6 @@ body {
 
 
 .section {
-
-  // border-width: 0 0 1px 0;
-  // border-style: solid;
-  // border-color: #d0d0d0;
 
 
   .section_title {
@@ -173,8 +169,97 @@ body {
 
 
   }
-}
 
+  .contact_form {
+
+    label{
+      cursor: text;
+      position: relative;
+      left: 40px;
+      font-size: 80%;
+      color: silver;
+    }
+    label[for="input_content"]{
+      cursor: text;
+      position: relative;
+      top: 10px;
+      left: 30px;
+      font-size: 80%;
+      color: silver;
+    }
+
+    input,textarea {
+      outline: 0;
+      border: none;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+      background-color: #f0f0f0;
+      padding: 7px;
+      margin-top: 25px;
+      width: 100%;
+      font-weight: 300;
+      color: inherit;
+    }
+    input:focus, textarea:focus{
+      transition: 0.3s;
+      border-bottom: 1px solid rgba(0, 0, 0, 1);
+    }
+    //placeholderを非表示にする
+    input:focus::-webkit-input-placeholder, textarea:focus::-webkit-input-placeholder {
+      color: transparent;
+    }
+    input:focus::-moz-placeholder, textarea:focus::-moz-placeholder {
+      color: transparent;
+    }
+    input:focus::-ms-input-placeholder, textarea:focus::-ms-input-placeholder {
+      color: transparent;
+    }
+    input:focus::placeholder, textarea:focus::placeholder {
+      color: transparent;
+    }
+
+    .input_content {
+      margin-bottom: 50px;
+    }
+
+    .submit {
+      margin: 0 auto;
+      padding-bottom: 50px;
+      display: block;
+      position: relative;
+      width: 160px;
+      padding: 0.8em;
+      font-size: 1em;
+      text-align: center;
+      text-decoration: none;
+      background: transparent;
+      border: none;
+      color: #1B1B1B;
+    }
+
+    .submit:hover {
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .submit::after {
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      content: '';
+      width: 100%;
+      height: 1px;
+      background: #404040;
+      transform: scale(0, 1);
+      transform-origin: right top;
+      transition: transform .3s;
+    }
+
+    .submit:hover::after {
+      transform-origin: left top;
+      transform: scale(1, 1);
+    }
+  }
+}
 #profile,
 #works,
 #contact {
@@ -207,6 +292,11 @@ body {
         }
       }
     }
+    .section{
+      .contact_form{
+        margin: 0 10% 0 10%;
+      }
+    }
   }
 
 }
@@ -220,8 +310,6 @@ body {
     padding: 0 18vw 0 18vw;
 
     .profile_wrapper {
-
-      height: 500px;
 
       display: grid;
       grid-template-rows: repeat(3, 72px) 1fr;
@@ -263,6 +351,12 @@ body {
         grid-row: 4;
         grid-column: 2;
       }
+    }
+
+    .contact_form{
+      width: 800px;
+      margin: 0 auto;
+      padding-bottom: 50px;
     }
   }
 }

@@ -1,8 +1,7 @@
 .footer {
 
-    height: 200px;
+
     width: 100%;
-    padding-bottom: 50px;
     background-color: #404040;
 
     .footer_title {
@@ -19,32 +18,45 @@
         justify-content: center;
 
         width: 100%;
-        margin: 0 auto 50px auto;
+        margin: 0 auto;
 
         div[class*="link_"]:not(div[class="link_Zenn"]) {
 
             text-align: center;
 
-            margin: 50px 3vw;
+            margin: 5vh 2vw 3vh;
             width: 100px;
-            
+
             //logo
-            img{
+            img {
                 filter: invert(100);
                 width: 40px;
             }
         }
 
-        .link_Zenn{
+        .link_Zenn {
             text-align: center;
 
-            margin: 50px 3vw;
+            margin: 5vh 2vw 3vh;
             width: 100px;
-            
+
             //logo
-            img{
+            img {
                 width: 40px;
             }
         }
+
+        div[class*="link_"]:hover{
+            opacity: 0.5;
+            transition: 0.1s;            
+        }
+    }
+
+    .copyright {
+        text-align: center;
+        padding: 2vh 0 2vh 0;
+        color: white;
+        border-top: 1px solid #4a4a4a;
+        background-color: #404040;
     }
 }
