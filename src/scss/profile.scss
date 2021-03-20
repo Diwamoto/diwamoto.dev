@@ -1,0 +1,113 @@
+#profile {
+    background-color: white;
+}
+
+.section {
+    .profile_wrapper {
+
+        font-weight: 500;
+        font-size: 1.2em;
+        padding-bottom: 20px;
+
+        div[class$="_content"] {
+            font-weight: 200;
+            font-size: 1em;
+        }
+
+        div[class^="profile_"]::before {
+            font-size: 1.2em;
+            padding-right: 10px;
+            font-family: "Material Icons";
+        }
+
+        .profile_name::before {
+            content: 'badge';
+        }
+
+        .profile_edu::before {
+            content: 'school';
+        }
+
+        .profile_birthday::before {
+            content: 'cake';
+        }
+
+        .profile_other::before {
+            content: 'assignment_ind';
+        }
+
+
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .section {
+
+        .profile_wrapper {
+            .profile_content {
+                padding-top: 1vh;
+                font-size: medium;
+            }
+
+            .profile_icon {
+                text-align: center;
+
+                img {
+                    border-radius: 50%;
+                    width: 20vw;
+                }
+            }
+        }
+    }
+
+}
+
+@media screen and (min-width:1000px) {
+
+    .section {
+        .profile_wrapper {
+
+            display: grid;
+            grid-template-rows: repeat(3, 72px) 1fr;
+            grid-template-columns: 400px 1fr;
+
+            .profile_icon {
+
+                grid-row: 1 / 6;
+                grid-column: 1;
+                text-align: center;
+
+                img {
+                    border-radius: 50%;
+                    width: 200px;
+                }
+            }
+
+            .profile_name {
+
+                grid-row: 1/2;
+                grid-column: 2;
+
+            }
+
+            .profile_edu {
+
+                grid-row: 2/3;
+                grid-column: 2;
+
+            }
+
+            .profile_birthday {
+                grid-row: 3/4;
+                grid-column: 2;
+            }
+
+
+            .profile_other {
+                grid-row: 4;
+                grid-column: 2;
+            }
+        }
+
+    }
+}
