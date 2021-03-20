@@ -21,6 +21,7 @@ html(lang='ja')
     link(rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato")
     link(rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+JP")
     link(rel="stylesheet" href="https://fonts.googleapis.com/css?family=Slabo+13px")
+    link(rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous")
   body
     .main_image
       .main_title_box 
@@ -45,6 +46,64 @@ html(lang='ja')
            | コードを書いたり、ゲームをしたり、キーボードを作ったりすることが好きです。
     .section#skill
       .section_title Skill
+      .skill_wrapper
+        .skill_card
+          .skill_name: i(class="fas fa-js")
+            |フロントエンド
+          .skill_column Javascript 
+            .skill_column_fw Vue.js
+            .skill_column_fw jQuery 
+          .skill_column pug 
+          .skill_column sass
+          .skill_column TypeScript
+        .skill_card
+          .skill_name: i(class="fas fa-server")
+            |バックエンド
+          .skill_column PHP 
+            .skill_column_fw CakePHP 
+            .skill_column_fw BaserCMS 
+            .skill_column_fw Laravel
+          .skill_column Go 
+            .skill_column_fw Gin
+          .skill_column Java
+            .skill_column_fw JSP/servlet
+            .skill_column_fw Spring
+        .skill_card
+          .skill_name: i(class="fas fa-database")
+           |データベース
+          .skill_column Mysql 
+            .skill_column_fw 5.7
+          .skill_column Redis
+          .skill_column Oracle
+        .skill_card
+          .skill_name: i(class="fas fa-file-code")
+           |その他言語
+          .skill_column C/C++
+          .skill_column Prolog
+        .skill_card
+          .skill_name: i(class="fas fa-linux")
+           |OS
+          .skill_column Windows
+          .skill_column MacOS 
+          .skill_column Linux
+            .skill_column_fw Ubuntu 
+            .skill_column_fw CentOS 
+            .skill_column_fw AlpineLinux 
+            .skill_column_fw Barge
+        .skill_card
+          .skill_name: i(class="fas fa-aws")
+           |その他技術
+          .skill_column Docker
+          .skill_column CircleCI 
+          .skill_column Virtualbox 
+          .skill_column Vagrant 
+          .skill_column AWS 
+            .skill_column_fw EC2 
+            .skill_column_fw RDS
+          .skill_column Swagger 
+          .skill_column Git 
+          .skill_column GitLab/Github 
+          .skill_column backlog 
     .section#works 
       .section_title Works
     .section#history

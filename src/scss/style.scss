@@ -169,6 +169,42 @@ body {
 
 
   }
+  .skill_wrapper{
+
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+
+
+    .skill_card{
+      height: 380px;
+      width: 350px;
+      background-color: white;
+      border-radius: 10px;
+      margin-bottom: 50px;
+      border: 1px solid #d0d0d0;
+
+      .skill_name{
+        text-align: center;
+        margin-top: 10px;
+        font-size: 25px;
+        font-family: "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", メイリオ, Meiryo, "ＭＳ Ｐゴシック", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      }
+
+      .skill_column{
+        padding-left: 40px;
+        font-size: 20px;
+        font-family: "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", メイリオ, Meiryo, "ＭＳ Ｐゴシック", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+        .skill_column_fw{
+          font-size: 15px;
+          padding-left: 20px;
+        }
+      }
+    }
+  }
+  
 
   .contact_form {
 
@@ -192,6 +228,7 @@ body {
       outline: 0;
       border: none;
       border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+      border-radius: 2px;
       background-color: #f0f0f0;
       padding: 7px;
       margin-top: 25px;
@@ -206,15 +243,19 @@ body {
     //placeholderを非表示にする
     input:focus::-webkit-input-placeholder, textarea:focus::-webkit-input-placeholder {
       color: transparent;
+      transition: 0.2s;
     }
     input:focus::-moz-placeholder, textarea:focus::-moz-placeholder {
       color: transparent;
+      transition: 0.2s;
     }
     input:focus::-ms-input-placeholder, textarea:focus::-ms-input-placeholder {
       color: transparent;
+      transition: 0.2s;
     }
     input:focus::placeholder, textarea:focus::placeholder {
       color: transparent;
+      transition: 0.2s;
     }
 
     .input_content {
@@ -259,6 +300,7 @@ body {
       transform: scale(1, 1);
     }
   }
+
 }
 #profile,
 #works,
