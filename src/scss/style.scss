@@ -134,11 +134,17 @@ body {
     font-family: 'Gothic A1', sans-serif;
   }
 
+  .section_subtitle{
+    font-family: '游ゴシック体', 'Yu Gothic', YuGothic, sans-serif;
+    font-weight: 200;
+    text-align: center;
+  }
+
   .profile_wrapper {
 
     font-weight: 500;
     font-size: 1.2em;
-    padding-bottom: 10px;
+    padding-bottom: 20px;
 
     div[class$="_content"] {
       font-weight: 200;
@@ -169,16 +175,17 @@ body {
 
 
   }
+
   .skill_wrapper{
 
-    margin-top: 50px;
+    margin-top: 30px;
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
 
 
     .skill_card{
-      height: 380px;
+      height: 400px;
       width: 350px;
       background-color: white;
       border-radius: 10px;
@@ -186,10 +193,16 @@ body {
       border: 1px solid #d0d0d0;
 
       .skill_name{
+        
         text-align: center;
         margin-top: 10px;
+        padding-bottom: 10px;
         font-size: 25px;
         font-family: "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", メイリオ, Meiryo, "ＭＳ Ｐゴシック", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+        i{
+          padding-right: 7px;
+        }
       }
 
       .skill_column{
@@ -201,6 +214,19 @@ body {
           font-size: 15px;
           padding-left: 20px;
         }
+
+        .skill_column_fw::before{
+          content: "-";
+          padding-right: 10px;
+        }
+      }
+      .skill_column::before {
+        font-family: "Font Awesome 5 Free";
+        font-weight:900;
+        font-size: 0.8em;
+        padding-right: 5px;
+        content: "\f00c";
+        color: #404040;
       }
     }
   }
