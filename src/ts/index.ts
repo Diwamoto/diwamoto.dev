@@ -8,6 +8,10 @@ import '/src/img/links/github.png';
 import '/src/img/links/mail.png';
 import '/src/img/links/twitter.png';
 import '/src/img/links/zenn.png';
+import '/src/img/works/diwamoto.png';
+import '/src/img/works/docker.png';
+import '/src/img/works/yource.png';
+import '/src/img/works/ownly.png';
 
 $(function () {
     $('.works_preview').slick({
@@ -21,12 +25,14 @@ $(function () {
         infinite: true,
         slidesToShow: 3,
         slidesToScroll: 3,
+        swipeToSlide: true,
         asNavFor: '.works_preview',
         centerMode: true,
         centerPadding: '60px',
         focusOnSelect: true,
         autoplay: true,
         autoplaySpeed: 2000,
+        variableWidth: true,
         responsive: [
             {
                 breakpoint: 1024,

@@ -18,6 +18,7 @@ html(lang='ja')
     link(rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato")
     link(rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+JP")
     link(rel="stylesheet" href="https://fonts.googleapis.com/css?family=Slabo+13px")
+    link(rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@1,200&display=swap")
     link(rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous")
     link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css" integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw==" crossorigin="anonymous")
     link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css" integrity="sha512-17EgCFERpgZKcm0j0fEq1YCJuyAWdz9KUtv1EjVuaOz8pDnh/0nZxmU6BBXwaaxqoi9PQXnRWqlcDB027hgv9A==" crossorigin="anonymous")
@@ -104,11 +105,17 @@ html(lang='ja')
       .section_title Works
       .works_wrapper
         .works_preview
-          each i, index in [{v:1},{v:2},{v:3},{v:4},{v:5}]
-            .works_box=i.v
+          each work, index in works
+            .works_box 
+              a(href=work.url target="_brank")
+                img(src=work.icon)
+                div=work.name 
+                div=work.description
         .works_slide
-          each i, index in [{v:1},{v:2},{v:3},{v:4},{v:5}]
-            .works_box=i.v
+          each work, index in works
+            .works_box 
+              img(src=work.icon)
+              div=work.name
     .section#history
       .section_title History
       .test aaa

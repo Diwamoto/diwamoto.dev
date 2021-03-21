@@ -1,30 +1,92 @@
-.section{
-    .works_wrapper{
+.section {
+    .works_wrapper {
         padding: 10px;
 
-        .works_preview{
+        .works_preview {
+
             margin: 0 auto 30px auto;
             background-color: white;
-            height: 300px;
-            width: 50%;
+            width: 60%;
+            border-radius: 7px;
+            border: 1px solid rgba(0, 0, 0, 0.17);
 
-            .transparent{
-                background-color: transparent;
-                color: transparent;
-                transition: 0.5s;
+            .works_box {
+                width: 100%;
+
+
+                img {
+                    height: 500px;
+                    width: 100%;
+                    object-fit: contain;
+                }
             }
+
+
+
+            a {
+                color: black;
+                text-decoration: none;
+            }
+
         }
 
-        .works_slide{
-            .works_box{
+        .works_slide {
+
+            .works_box {
+                border: 1px solid rgba(0, 0, 0, 0.17);
                 text-align: center;
-                padding-top: 45px;
                 background-color: white;
-                height: 100px;
                 font-size: 20px;
+
+
+                img {
+                    height: 200px;
+                    width: 300px;
+
+                    object-fit: contain;
+                    // object-fit: cover;
+                    // position: absolute;
+                    // top: 0;
+                }
+
+                div {
+                    font-family: 'Nunito', sans-serif;
+                }
+
             }
         }
 
 
+    }
+}
+
+.slick-slide {
+    margin: 0 10px 0 10px;
+}
+
+//1000以下
+@media screen and (max-width: 1000px) {
+    .section {
+        .works_wrapper {
+            .works_preview {
+
+                margin: 0 auto 30px auto;
+                width: 100%;
+            }
+        }
+    }
+}
+
+
+//1000以上
+@media screen and (min-width:1000px) {
+    .section {
+        .works_wrapper {
+            .works_preview {
+
+                margin: 0 auto 30px auto;
+                width: 600px;
+            }
+        }
     }
 }
