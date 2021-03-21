@@ -1,7 +1,4 @@
-- var title='diwamoto.dev'
-- var description='My Portfolio.'
-- var domain='diwamoto.dev'
-- var lists=[{name:"Github",icon:"github",url:"https://github.com/diwamoto"},{name:"Twitter",icon:"twitter",url:"https://twitter.com/Diwamoto_"},{name:"Facebook",icon:"facebook",url:"https://www.facebook.com/profile.php?id=100045347584995"},{name:"Zenn",icon:"zenn",url:"https://zenn.dev/diwamoto"},{name:"Mail",icon:"mail",url:"mailto:daiki.work.0118@gmail.com"}];
+include ./values
 doctype html
 html(lang='ja')
   head
@@ -22,6 +19,11 @@ html(lang='ja')
     link(rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+JP")
     link(rel="stylesheet" href="https://fonts.googleapis.com/css?family=Slabo+13px")
     link(rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous")
+    link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css" integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw==" crossorigin="anonymous")
+    link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css" integrity="sha512-17EgCFERpgZKcm0j0fEq1YCJuyAWdz9KUtv1EjVuaOz8pDnh/0nZxmU6BBXwaaxqoi9PQXnRWqlcDB027hgv9A==" crossorigin="anonymous")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.3.2/jquery-migrate.min.js" integrity="sha512-3fMsI1vtU2e/tVxZORSEeuMhXnT9By80xlmXlsOku7hNwZSHJjwcOBpmy+uu+fyWwGCLkMvdVbHkeoXdAzBv+w==" crossorigin="anonymous")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js" integrity="sha512-HGOnQO9+SP1V92SrtZfjqxxtLmVzqZpjFFekvzZVWoiASSQgSr4cw9Kqd2+l8Llp4Gm0G8GIFJ4ddwZilcdb8A==" crossorigin="anonymous")
   body
     .main_image
       .main_title_box 
@@ -48,7 +50,7 @@ html(lang='ja')
       .section_title Skill
       .skill_wrapper
         .skill_card
-          .skill_name: <i class="material-icons">desktop_mac</i>フロントエンド
+          .skill_name: <i class="fas fa-desktop"></i>フロントエンド
           .skill_column Javascript 
             .skill_column_fw Vue.js
             .skill_column_fw jQuery 
@@ -96,16 +98,23 @@ html(lang='ja')
             .skill_column_fw RDS
           .skill_column Swagger 
           .skill_column Git 
-          .skill_column GitLab/Github 
-          .skill_column backlog 
+          .skill_column GitLab/GitHub 
+          .skill_column Backlog 
     .section#works 
       .section_title Works
+      .works_wrapper
+        .works_preview
+          each i, index in [{v:1},{v:2},{v:3},{v:4},{v:5}]
+            .works_box=i.v
+        .works_slide
+          each i, index in [{v:1},{v:2},{v:3},{v:4},{v:5}]
+            .works_box=i.v
     .section#history
       .section_title History
       .test aaa
     .section#contact
       .section_title Contact
-      .section_subtitle お問い合わせはこちらまで。
+      .section_subtitle ご連絡はこちらもしくは下記のlinksよりよろしくお願いいたします。
       form.contact_form
         .form_input_item
           input(name="name" class="input_name" placeholder="Name" pattern="^[a-z]+@[a-z]+\.[a-z]+$" required)
@@ -120,9 +129,9 @@ html(lang='ja')
     .footer
       .footer_title Links
       .links
-        each list, index in lists
-          div(class="link_" + list.name)
-            a(href=list.url target="_blank"): img(class="link_logo_" + list.name src="/src/img/links/" + list.icon + ".png")
+        each link, index in links
+          div(class="link_" + link.name)
+            a(href=link.url target="_blank"): img(class="link_logo_" + link.name src="/src/img/links/" + link.icon + ".png")
       .copyright Copyright © 2021 Diwamoto.
         
             

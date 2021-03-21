@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const {
     CleanWebpackPlugin
@@ -10,7 +11,10 @@ const SCSS_PATH = path.join(__dirname, './src/scss');
 const IMG_PATH = path.join(__dirname, "./src/img");
 
 module.exports = {
-    mode: 'production',
+    externals: {
+        "jquery": '$'
+    },
+    mode: 'development',
     entry: TS_PATH + '/index.ts',
     output: {
         path: path.resolve(__dirname, 'dist'),
@@ -101,6 +105,10 @@ module.exports = {
         new CleanWebpackPlugin(),
         new MiniCssExtractPlugin({
             filename: "style.css",
+        }),
+        new webpack.ProvidePlugin({
+            $: "jquery",
+            jQuery: "jquery"
         }),
     ],
     watchOptions: {

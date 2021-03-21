@@ -1,5 +1,6 @@
 @import "profile";
 @import "skill";
+@import "works";
 @import "contact";
 @import "footer";
 
@@ -141,12 +142,9 @@ body {
     font-weight: 200;
     text-align: center;
   }
-}
-#works {
-  background-color: white;
-}
 
-#history {
+}
+#works,#history {
   background-color: #f5f5f5;
 }
 

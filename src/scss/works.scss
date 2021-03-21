@@ -1,0 +1,30 @@
+.section{
+    .works_wrapper{
+        padding: 10px;
+
+        .works_preview{
+            margin: 0 auto 30px auto;
+            background-color: white;
+            height: 300px;
+            width: 50%;
+
+            .transparent{
+                background-color: transparent;
+                color: transparent;
+                transition: 0.5s;
+            }
+        }
+
+        .works_slide{
+            .works_box{
+                text-align: center;
+                padding-top: 45px;
+                background-color: white;
+                height: 100px;
+                font-size: 20px;
+            }
+        }
+
+
+    }
+}

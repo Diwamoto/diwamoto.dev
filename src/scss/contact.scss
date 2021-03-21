@@ -5,6 +5,8 @@
 .section {
     .contact_form {
 
+        padding-bottom: 50px;
+
         label {
             cursor: text;
             position: relative;
@@ -117,7 +119,6 @@
         .contact_form {
             width: 800px;
             margin: 0 auto;
-            padding-bottom: 50px;
         }
     }
 }
