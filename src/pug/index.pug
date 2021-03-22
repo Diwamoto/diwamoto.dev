@@ -19,6 +19,7 @@ html(lang='ja')
     link(rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+JP")
     link(rel="stylesheet" href="https://fonts.googleapis.com/css?family=Slabo+13px")
     link(rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@1,200&display=swap")
+    link(rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cardo:ital@1&display=swap")
     link(rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous")
     link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css" integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw==" crossorigin="anonymous")
     link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css" integrity="sha512-17EgCFERpgZKcm0j0fEq1YCJuyAWdz9KUtv1EjVuaOz8pDnh/0nZxmU6BBXwaaxqoi9PQXnRWqlcDB027hgv9A==" crossorigin="anonymous")
@@ -26,6 +27,7 @@ html(lang='ja')
     script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.3.2/jquery-migrate.min.js" integrity="sha512-3fMsI1vtU2e/tVxZORSEeuMhXnT9By80xlmXlsOku7hNwZSHJjwcOBpmy+uu+fyWwGCLkMvdVbHkeoXdAzBv+w==" crossorigin="anonymous")
     script(src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js" integrity="sha512-HGOnQO9+SP1V92SrtZfjqxxtLmVzqZpjFFekvzZVWoiASSQgSr4cw9Kqd2+l8Llp4Gm0G8GIFJ4ddwZilcdb8A==" crossorigin="anonymous")
   body
+    include ./navbar
     .main_image
       .main_title_box 
         .title Diwamoto
@@ -118,7 +120,11 @@ html(lang='ja')
               div=work.name
     .section#history
       .section_title History
-      .test aaa
+      .history_wrapper 
+        .history_content
+        .history_content
+    //- .section#blog
+    //-   .section_title Blog 
     .section#contact
       .section_title Contact
       .section_subtitle ご連絡はこちらもしくは下記のlinksよりよろしくお願いいたします。
@@ -140,5 +146,6 @@ html(lang='ja')
           div(class="link_" + link.name)
             a(href=link.url target="_blank"): img(class="link_logo_" + link.name src="/src/img/links/" + link.icon + ".png")
       .copyright Copyright © 2021 Diwamoto.
+    button(class="btn_top"): i(class="fas fa-angle-double-up fa-lg")
         
             

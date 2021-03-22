@@ -14,6 +14,37 @@ import '/src/img/works/yource.png';
 import '/src/img/works/ownly.png';
 
 $(function () {
+
+    //一定以上スクロールされたらナビゲーションを表示する
+    $(window).scroll(function() {
+
+        if (window.scrollY > 100){
+            $('.btn_top').removeClass('btn_top_fadeout').addClass('btn_top_appear')
+            $('.nav').removeClass('nav_fadeout').addClass('nav_appear')
+        } else {
+            $('.btn_top').removeClass('btn_top_appear').addClass('btn_top_fadeout')
+            $('.nav').removeClass('nav_appear').addClass('nav_fadeout')
+        }
+
+        if (window.scrollY > $(window).height()){
+            $('.nav_hamburger').removeClass('nav_hamburger_fadeout').addClass('nav_hamburger_appear')
+        } else {
+            $('.nav_hamburger').removeClass('nav_hamburger_appear').addClass('nav_hamburger_fadeout')
+            $('.nav_sp').removeClass('nav_sp_appear')
+        }
+
+    });
+
+    $('.btn_top').on('click',()=>{
+        $('body, html').animate({ scrollTop: 0 }, 500);
+    }) 
+
+    $('.nav_btn').on('click',()=>{
+        $('.nav_sp').toggleClass('nav_sp_appear')
+    })
+
+
+    //works カルーセル設定
     $('.works_preview').slick({
         slidesToShow: 1,
         slidesToScroll: 1,
