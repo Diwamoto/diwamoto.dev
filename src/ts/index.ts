@@ -68,6 +68,12 @@ $(function () {
             setTimeout(function(){
                 $('.contact_flash_msg').removeClass("fadein").addClass("fadeout")
             },3000)
+
+            //お問い合わせを何度も送信しないように内容を削除する。
+            $('.input_name').val("")
+            $('.input_email').val("")
+            $('.input_content').val("")
+
             
         });
 
