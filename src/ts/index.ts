@@ -50,7 +50,8 @@ $(function () {
         slidesToScroll: 1,
         arrows: false,
         fade:true,
-        asNavFor: '.works_slide'
+        asNavFor: '.works_slide',
+        zIndex: 10,
     });
     $('.works_slide').slick({
         infinite: true,
@@ -64,6 +65,7 @@ $(function () {
         autoplay: true,
         autoplaySpeed: 2000,
         variableWidth: true,
+        zIndex: 10,
         responsive: [
             {
                 breakpoint: 1024,
