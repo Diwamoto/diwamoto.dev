@@ -8,7 +8,7 @@
         display: flex;
         border: 1px solid rgba(0, 0, 0, 0.17);
         background-color: white;
-        margin: 0 auto;
+        margin: 0 5% 0 5%;
         border-radius: 7px;
         box-shadow: 0px 0px 16px -6px rgba(0, 0, 0, 0.6);
         position: fixed;
@@ -88,7 +88,7 @@
 }
 @media screen and (min-width: 800px) {
     //タブレット以上にはハンバーガーメニューは表示しない
-    .nav_hamburger{
+    .nav_hamburger, .nav_sp{
         display:none;
     }
     //代わりにナビゲーションメニューを表示する
