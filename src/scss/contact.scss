@@ -3,6 +3,60 @@
 }
 
 .section {
+
+    .contact_flash_msg {
+        position: fixed;
+        display:none;
+        justify-content: flex-start;
+        align-items: center;
+        box-shadow: 0px 0px 16px -6px rgba(0, 0, 0, 0.6);
+        border-radius: 20px;
+        padding-left: 25px;
+        height: 80px;
+        width: 80%;
+        top: 60px;
+        left: 10%;
+        opacity: 0;
+        color: white;
+        background-color: #4caf50;
+        animation: alert;
+        animation-duration: 0.5s;
+    }
+
+    .fadein{
+        display:flex;
+        opacity:1;
+        transition: 0.5s;
+    }
+
+    .fadeout{
+        display:flex;
+        opacity: 0;
+        top: -25px;
+        transition: 0.5s;    
+    }
+
+    @keyframes alert{
+        0% {
+          opacity: 0%;
+          transform: translateY(-25px);
+        }
+      
+        100% {
+          opacity: 100%;
+          transform: translateY(0px);
+        }
+    }
+
+    .contact_flash_msg::before{
+        font-size: 30px;
+        font-weight: 900;
+        padding-right: 20px;
+        color: rgba(255,255,255, 0.9);
+        content: "\f058";
+        font-family: "Font Awesome 5 Free";
+    }
+
     .contact_form {
 
         padding-bottom: 50px;

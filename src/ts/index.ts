@@ -13,12 +13,14 @@ import '/src/img/works/docker.png';
 import '/src/img/works/yource.png';
 import '/src/img/works/ownly.png';
 
+declare var SLACK_URL: string;
+
 $(function () {
 
     //一定以上スクロールされたらナビゲーションを表示する
-    $(window).scroll(function() {
+    $(window).scroll(function () {
 
-        if (window.scrollY > 100){
+        if (window.scrollY > 100) {
             $('.btn_top').removeClass('btn_top_fadeout').addClass('btn_top_appear')
             $('.nav').removeClass('nav_fadeout').addClass('nav_appear')
         } else {
@@ -26,7 +28,7 @@ $(function () {
             $('.nav').removeClass('nav_appear').addClass('nav_fadeout')
         }
 
-        if (window.scrollY > $(window).height()){
+        if (window.scrollY > $(window).height()) {
             $('.nav_hamburger').removeClass('nav_hamburger_fadeout').addClass('nav_hamburger_appear')
         } else {
             $('.nav_hamburger').removeClass('nav_hamburger_appear').addClass('nav_hamburger_fadeout')
@@ -35,12 +37,46 @@ $(function () {
 
     });
 
-    $('.btn_top').on('click',()=>{
+    //topへ戻るボタン
+    $('.btn_top').on('click', () => {
         $('body, html').animate({ scrollTop: 0 }, 500);
-    }) 
+    })
 
-    $('.nav_btn').on('click',()=>{
+    //スマホ用のナビゲーションを表示する
+    $('.nav_btn').on('click', () => {
         $('.nav_sp').toggleClass('nav_sp_appear')
+    })
+
+    //formの送信をキャンセルしてslackに通知を飛ばし、成功のポップアップを出す
+    $('.contact_form').on('submit', (e) => {
+        e.preventDefault()
+        const data = {
+            name: $('.input_name').val(),
+            email: $('.input_email').val(),
+            content: $('.input_content').val()
+        }
+        $.ajax({
+            type: 'POST',
+            url: SLACK_URL,
+            data: 'payload=' + JSON.stringify({
+                text: "<@U013BDR327K>\n *お問い合わせを受信しました。* \n```\n氏名：" + data["name"] + "\nメールアドレス：" + data["email"] + "\nお問い合わせ内容：" + data["content"] + "\n```"
+            }),
+        }).done(() => {
+            //通知メッセージを表示し、5秒後に非表示にする
+            $('.contact_flash_msg').text("お問い合わせを送信しました。")
+            $('.contact_flash_msg').removeClass("fadeout").addClass("fadein")
+            setTimeout(function(){
+                $('.contact_flash_msg').removeClass("fadein").addClass("fadeout")
+            },3000)
+            
+        });
+
+
+    })
+
+    //通知はクリックしたら消える
+    $('.contact_flash_msg').on('click',function(){
+        $('.contact_flash_msg').removeClass("fadein").addClass("fadeout")
     })
 
 
@@ -49,7 +85,7 @@ $(function () {
         slidesToShow: 1,
         slidesToScroll: 1,
         arrows: false,
-        fade:true,
+        fade: true,
         asNavFor: '.works_slide',
         zIndex: 1,
     });

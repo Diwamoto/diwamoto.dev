@@ -110,6 +110,9 @@ module.exports = {
             $: "jquery",
             jQuery: "jquery"
         }),
+        new webpack.DefinePlugin({
+            'SLACK_URL': JSON.stringify(process.env.SLACK_URL),
+        })
     ],
     watchOptions: {
         ignored: /node_modules/
