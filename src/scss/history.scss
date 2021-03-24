@@ -1,0 +1,54 @@
+.section {
+
+    .history_wrapper {
+        height: 1000px;
+
+        .history_timeline {
+            position: absolute;
+            background-color: #909090;
+            width: 6px;
+            margin: 0 1px 0 1px;
+        }
+
+        .history_timeline_marker {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            margin-top: -1px;
+            margin-left: -36px;
+            background-color: green;
+            border-radius: 100%;
+        }
+
+        div[class^="history_item"] {
+            opacity: 0;
+            height: 100px;
+            padding-left: 30px;
+        }
+    }
+
+    .history_summary {
+        padding-top: 10%;
+        padding-bottom: 10%;
+
+        .history_comment {
+            margin: 0 auto;
+            width: 500px;
+            text-align: center;
+            font-size: 60px;
+            font-weight: 500;
+            font-family: 'Kalam', cursive;
+        }
+
+        .history_label {
+            margin: 0 auto;
+            width: 500px;
+            font-family: 'Sawarabi Mincho', sans-serif;
+            font-size: 20px;
+            text-align: center;
+        }
+
+    }
+
+
+}

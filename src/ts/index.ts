@@ -17,9 +17,10 @@ declare var SLACK_URL: string;
 
 $(function () {
 
-    //一定以上スクロールされたらナビゲーションを表示する
-    $(window).scroll(function () {
 
+    $(window).on('scroll', function () {
+
+        //一定以上スクロールされたらナビゲーションを表示する
         if (window.scrollY > 100) {
             $('.btn_top').removeClass('btn_top_fadeout').addClass('btn_top_appear')
             $('.nav').removeClass('nav_fadeout').addClass('nav_appear')
@@ -27,13 +28,31 @@ $(function () {
             $('.btn_top').removeClass('btn_top_appear').addClass('btn_top_fadeout')
             $('.nav').removeClass('nav_appear').addClass('nav_fadeout')
         }
-
+        //スマホ用
         if (window.scrollY > $(window).height()) {
             $('.nav_hamburger').removeClass('nav_hamburger_fadeout').addClass('nav_hamburger_appear')
         } else {
             $('.nav_hamburger').removeClass('nav_hamburger_appear').addClass('nav_hamburger_fadeout')
             $('.nav_sp').removeClass('nav_sp_appear')
         }
+
+        //history用 スクロールに合わせてタイムラインの棒を画面の真ん中と合わせる
+        if ($(window).scrollTop() > $('.history_wrapper').offset().top - $(window).height()) {
+
+            //画面中央までの長さにする
+            // = 画面の大きさの半分 - (画面の上からタイムラインの先頭までの距離)
+            $('.history_timeline').height($(window).height() / 2 - ($('.history_timeline').offset().top - $(window).scrollTop()));
+            
+            //長さは#history分
+            //→#historyよりも下にスクロールしたら高さを#history分にして止める
+            if($('.history_timeline').height() >= $('.history_wrapper').height()){
+
+                // = #historyの高さからセクションタイトルを引いた分だけの長さにする。
+                $('.history_timeline').height($('.history_wrapper').height());
+            }
+        }
+
+        //historyのアイテムが
 
     });
 
@@ -65,23 +84,23 @@ $(function () {
             //通知メッセージを表示し、5秒後に非表示にする
             $('.contact_flash_msg').text("お問い合わせを送信しました。")
             $('.contact_flash_msg').removeClass("fadeout").addClass("fadein")
-            setTimeout(function(){
+            setTimeout(function () {
                 $('.contact_flash_msg').removeClass("fadein").addClass("fadeout")
-            },3000)
+            }, 3000)
 
             //お問い合わせを何度も送信しないように内容を削除する。
             $('.input_name').val("")
             $('.input_email').val("")
             $('.input_content').val("")
 
-            
+
         });
 
 
     })
 
     //通知はクリックしたら消える
-    $('.contact_flash_msg').on('click',function(){
+    $('.contact_flash_msg').on('click', function () {
         $('.contact_flash_msg').removeClass("fadein").addClass("fadeout")
     })
 
