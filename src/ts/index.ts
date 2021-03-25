@@ -15,6 +15,8 @@ import '/src/img/works/ownly.png';
 
 declare var SLACK_URL: string;
 
+var reach_flg = false;
+
 $(function () {
 
 
@@ -39,20 +41,55 @@ $(function () {
         //history用 スクロールに合わせてタイムラインの棒を画面の真ん中と合わせる
         if ($(window).scrollTop() > $('.history_wrapper').offset().top - $(window).height()) {
 
-            //画面中央までの長さにする
-            // = 画面の大きさの半分 - (画面の上からタイムラインの先頭までの距離)
-            $('.history_timeline').height($(window).height() / 2 - ($('.history_timeline').offset().top - $(window).scrollTop()));
-            
-            //長さは#history分
-            //→#historyよりも下にスクロールしたら高さを#history分にして止める
-            if($('.history_timeline').height() >= $('.history_wrapper').height()){
+            //既に伸びきっていればもう伸ばさない。
+            if (reach_flg) {
 
-                // = #historyの高さからセクションタイトルを引いた分だけの長さにする。
-                $('.history_timeline').height($('.history_wrapper').height());
-            }
+            } else {
+
+                //画面中央までの長さにする
+                // = 画面の大きさの半分 - (画面の上からタイムラインの先頭までの距離)
+                $('.history_timeline').height($(window).height() / 2 - ($('.history_timeline').offset().top - $(window).scrollTop()));
+
+                //長さは#history分
+                //→#historyよりも下にスクロールしたら高さを#history分にして止める
+                if ($('.history_timeline').height() >= $('.history_wrapper').height()) {
+
+                    // = #historyの高さからセクションタイトルを引いた分だけの長さにする。
+                    $('.history_timeline').height($('.history_wrapper').height());
+                    reach_flg = true
+                }
+            } 
         }
 
-        //historyのアイテムが
+        //historyの各アイテムについて処理する。
+        for (var i = 1; i <= 12; i++) {
+
+            //アイテムが存在したら
+            if ($(".history_item" + i).length) {
+
+                var target = $(".history_item" + i)
+
+                //historyの各アイテムが画面の中央にきたら
+                if ($(window).scrollTop() + $(window).height() / 2 > target.offset().top) {
+
+                    //表示用のクラスが存在しなければ付与、あれば何もしない。
+                    if (!target.hasClass("history_item_appear")) {
+                        //target.addClass("history_item_appear")
+                        target.css("transition", "0.5s").css("opacity", "1")
+                        console.log(target)
+        
+                    }
+                }
+            }
+
+        }
+
+        //historyのタイトルを表示
+        if ($(window).scrollTop() + $(window).height() / 2 > $(".history_summary").offset().top) {
+            $(".history_summary").css("transition", "0.5s").css("opacity", "1")
+        }
+
+
 
     });
 
