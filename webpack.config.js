@@ -5,6 +5,8 @@ const {
     CleanWebpackPlugin
 } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const TerserPlugin = require('terser-webpack-plugin');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const TS_PATH = path.join(__dirname, './src/ts');
 const PUG_PATH = path.join(__dirname, './src/pug');
 const SCSS_PATH = path.join(__dirname, './src/scss');
@@ -14,7 +16,7 @@ module.exports = {
     externals: {
         "jquery": '$'
     },
-    mode: 'development',
+    mode: 'production',
     entry: TS_PATH + '/index.ts',
     output: {
         path: path.resolve(__dirname, 'dist'),
@@ -119,6 +121,12 @@ module.exports = {
     },
     performance: {
         hints: false
-    }
+    },
+    optimization: {
+        minimizer: [
+          new TerserPlugin(),
+          new OptimizeCSSAssetsPlugin()
+        ]
+      }
 
 }
