@@ -38,6 +38,37 @@ $(function () {
             $('.nav_sp').removeClass('nav_sp_appear')
         }
 
+
+        //skill用 スクロールしてきたらタイルを一つづつ表示する。
+        if ($(window).scrollTop() > $('.skill_card1').offset().top - $(window).height()/2) {
+            $('.skill_card1').addClass("skill_animation_under").css("opacity","1")
+            .delay(200).queue(function(){
+                $('.skill_card2').addClass("skill_animation_under").css("opacity","1").dequeue()
+                .delay(200).queue(function(){
+                    $('.skill_card3').addClass("skill_animation_under").css("opacity","1").dequeue()
+                    .delay(200).queue(function(){
+                        $('.skill_card4').addClass("skill_animation_under").css("opacity","1").dequeue()
+                        .delay(200).queue(function(){
+                            $('.skill_card5').addClass("skill_animation_under").css("opacity","1").dequeue()
+                            .delay(200).queue(function(){
+                                $('.skill_card6').addClass("skill_animation_under").css("opacity","1").dequeue();
+                            });
+                        })
+                    });
+                });
+            });
+        }
+        if ($(window).scrollTop() > $('.skill_card4').offset().top - $(window).height()/2) {
+            $('.skill_card4').addClass("skill_animation_under").css("opacity","1")
+            .delay(200).queue(function(){
+                $('.skill_card5').addClass("skill_animation_under").css("opacity","1").dequeue()
+                .delay(200).queue(function(){
+                    $('.skill_card6').addClass("skill_animation_under").css("opacity","1").dequeue();
+                });
+            });
+        }
+
+
         //history用 スクロールに合わせてタイムラインの棒を画面の真ん中と合わせる
         if ($(window).scrollTop() > $('.history_wrapper').offset().top - $(window).height()) {
 
@@ -73,20 +104,24 @@ $(function () {
                 if ($(window).scrollTop() + $(window).height() / 2 > target.offset().top) {
 
                     //表示用のクラスが存在しなければ付与、あれば何もしない。
-                    if (!target.hasClass("history_item_appear")) {
-                        //target.addClass("history_item_appear")
-                        target.css("transition", "0.5s").css("opacity", "1")
-                        console.log(target)
-        
+                    if (!target.hasClass("history_animation_left")) {
+                        target.children(".history_timeline_marker").addClass("history_animation_top").css("opacity","1")
+                        target.children(".history_time").addClass("history_animation_left").css("opacity","1")
+                        target.children(".history_content").addClass("history_animation_left").css("opacity","1")
+                        target.children(".history_underline").addClass("history_animation_extend").css("opacity","1")
                     }
                 }
             }
 
         }
 
+        if ($(window).scrollTop() + $(window).height() / 2 > $(".history_now").offset().top) {
+            $(".history_now").css("transition", "0.5s").css("opacity", "1")
+        }
+
         //historyのタイトルを表示
         if ($(window).scrollTop() + $(window).height() / 2 > $(".history_summary").offset().top) {
-            $(".history_summary").css("transition", "0.5s").css("opacity", "1")
+            $(".history_summary").css("transition", "1.5s").css("opacity", "1")
         }
 
 
