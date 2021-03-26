@@ -1,6 +1,4 @@
-#skill{
-  background-color: #f5f5f5;
-}
+
 .section{
     .skill_wrapper{
 
@@ -10,7 +8,8 @@
         flex-wrap: wrap;
     
     
-        .skill_card{
+        div[class^="skill_card"]{
+          opacity:0;
           height: 450px;
           width: 350px;
           background-color: white;
@@ -54,6 +53,24 @@
             content: "\f00c";
             color: #404040;
           }
+
         }
       }
+}
+
+.skill_animation_under {
+  animation: fadein-under;
+  animation-duration: 1s;
+}
+
+@keyframes fadein-under {
+  0% {
+      opacity: 0;
+      transform: translateY(25px);
+  }
+
+  100% {
+      opacity: 1;
+      transform: translateY(0px);
+  }
 }

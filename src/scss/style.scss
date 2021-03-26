@@ -130,12 +130,15 @@ body {
 
 
 .section {
+
+  background-color: #f5f5f5;
+
   
   .section_title {
     text-align: center;
     padding-top: 20px;
     padding-bottom: 20px;
-    font-size: 40px;
+    font-size: 50px;
     font-weight: 500;
     font-family: 'Gothic A1', sans-serif;
   }
@@ -146,9 +149,6 @@ body {
     text-align: center;
   }
 
-}
-#works,#history {
-  background-color: #f5f5f5;
 }
 
 //1450以下
