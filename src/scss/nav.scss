@@ -1,0 +1,156 @@
+@media screen and (max-width: 800px) {
+    //タブレット以下にはナビゲーションメニューは表示させない
+    .nav{
+        display:none;
+    }
+    //代わりにタブレット用の
+    .nav_sp{
+        display: flex;
+        border: 1px solid rgba(0, 0, 0, 0.17);
+        background-color: white;
+        margin: 0 5% 0 5%;
+        border-radius: 7px;
+        box-shadow: 0px 0px 16px -6px rgba(0, 0, 0, 0.6);
+        position: fixed;
+        z-index: 2;
+        top: -100px;
+        width: 90%;
+        height: 50px;
+        transition: 0.5s;
+
+        .nav_icon {
+            text-decoration: none;
+            margin: 5px auto 5px auto;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #486d94;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            i {
+                color: white;
+            }
+
+            .nav_link {
+                display: none;
+            }
+        }
+
+        .nav_link{
+            display:none;
+        }
+    }
+    //代わりにハンバーガーメニューを表示する
+    .nav_hamburger{
+        top: -100px;
+        display:flex;
+        text-align: center;
+        position: fixed;
+        justify-content: space-between;
+        width: 100%;
+        z-index: 2;
+        height: 50px;
+        background-color: #404040;
+
+        .nav_title{
+            margin: auto;
+            width: 100px;
+            font-size: 26px;
+            font-family: 'Cardo', serif;
+            color: white;
+        }
+        .nav_btn{
+            border:none;
+            height: 100%;
+            width: 50px;
+            background-color: transparent;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+    }
+
+    .nav_sp_appear{
+        top: 50px;
+        transition: 0.5s;
+    }
+
+    .nav_hamburger_appear{
+        top: 0;
+        transition: 0.5s;
+    }
+    .nav_hamburger_fadeout{
+        top: -100px;
+        transition: 0.5s;
+    }
+}
+@media screen and (min-width: 800px) {
+    //タブレット以上にはハンバーガーメニューは表示しない
+    .nav_hamburger, .nav_sp{
+        display:none;
+    }
+    //代わりにナビゲーションメニューを表示する
+    .nav {
+        border: 1px solid rgba(0, 0, 0, 0.17);
+        background-color: white;
+        border-radius: 7px;
+        box-shadow: 0px 0px 16px -6px rgba(0, 0, 0, 0.6);
+        position: fixed;
+        top: 100px;
+        left: -100px;
+        width: 50px;
+
+        .nav_icon {
+            text-decoration: none;
+            margin: 5px auto 5px auto;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #486d94;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            i {
+                color: white;
+            }
+
+            .nav_link {
+                display: none;
+            }
+        }
+
+        .nav_icon:hover {
+            transition: 0.2s;
+            margin-left: 5px;
+            border-radius: 20px 20px 20px 20px;
+            width: 120px;
+
+            i {
+                margin-left: 5%;
+            }
+
+            .nav_link {
+                margin: 0 10px;
+                font-size: 1.2em;
+                display: block;
+                color: white;
+                transition: 0.2s;
+            }
+        }
+    }
+
+    .nav_appear {
+        left: 15px;
+        transition: 0.5s;
+    }
+
+    .nav_fadeout {
+        left: -100px;
+        transition: 0.5s;
+    }
+}

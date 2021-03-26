@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const {
     CleanWebpackPlugin
@@ -10,11 +11,15 @@ const SCSS_PATH = path.join(__dirname, './src/scss');
 const IMG_PATH = path.join(__dirname, "./src/img");
 
 module.exports = {
-    mode: 'production',
+    externals: {
+        "jquery": '$'
+    },
+    mode: 'development',
     entry: TS_PATH + '/index.ts',
     output: {
         path: path.resolve(__dirname, 'dist'),
         clean: true,
+        assetModuleFilename: "img/[name][ext]",
     },
     devServer: {
         contentBase: path.join(__dirname, 'src'),
@@ -31,14 +36,12 @@ module.exports = {
         rules: [{
                 test: /.(jpe?g|png|gif|svg|ico)/,
                 include: path.resolve(__dirname, 'src'),
-                use: [{
-                    loader: "url-loader",
-                    options: {
-                        name: '[name].[ext]',
-                        outputPath: 'img',
-                        limit: 1,
+                type: "asset",
+                parser: {
+                    dataUrlCondition: {
+                        maxSize: 10 * 1024,
                     },
-                }, ]
+                },
             },
             {
                 test: /\.ts$/,
@@ -54,7 +57,7 @@ module.exports = {
                     {
                         loader: 'pug-html-loader',
                         options: {
-                            pretty: true,
+                            pretty: false,
                         },
                     },
                 ]
@@ -67,10 +70,9 @@ module.exports = {
                     },
                     {
                         loader: 'css-loader',
-                        options: {
-                            url: false,
-                            sourceMap: true,
-                        },
+                    },
+                    {
+                        loader: "resolve-url-loader"
                     },
                     {
                         loader: 'sass-loader',
@@ -79,7 +81,6 @@ module.exports = {
                                 outputStyle: 'expanded',
                                 fiber: require('fibers'),
                             },
-                            sourceMap: true,
                         },
                     },
                 ]
@@ -87,7 +88,10 @@ module.exports = {
         ]
     },
     resolve: {
-        extensions: ['.ts', '.js'],
+        modules: ["node_modules"],
+        alias: {
+            '@': path.join(__dirname, './src'),
+        },
         cacheWithContext: false,
         symlinks: false
     },
@@ -102,10 +106,19 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename: "style.css",
         }),
+        new webpack.ProvidePlugin({
+            $: "jquery",
+            jQuery: "jquery"
+        }),
+        new webpack.DefinePlugin({
+            'SLACK_URL': JSON.stringify(process.env.SLACK_URL),
+        })
     ],
     watchOptions: {
         ignored: /node_modules/
     },
-    performance: { hints: false }
+    performance: {
+        hints: false
+    }
 
 }

@@ -1,0 +1,184 @@
+
+.section {
+
+    .contact_flash_msg {
+        position: fixed;
+        display:none;
+        justify-content: flex-start;
+        align-items: center;
+        box-shadow: 0px 0px 16px -6px rgba(0, 0, 0, 0.6);
+        border-radius: 20px;
+        padding-left: 25px;
+        height: 80px;
+        width: 80%;
+        top: 60px;
+        left: 10%;
+        opacity: 0;
+        color: white;
+        background-color: #4caf50;
+        animation: alert;
+        animation-duration: 0.5s;
+    }
+
+    .fadein{
+        display:flex;
+        opacity:1;
+        transition: 0.5s;
+    }
+
+    .fadeout{
+        display:flex;
+        opacity: 0;
+        top: -25px;
+        transition: 0.5s;    
+    }
+
+    @keyframes alert{
+        0% {
+          opacity: 0%;
+          transform: translateY(-25px);
+        }
+      
+        100% {
+          opacity: 100%;
+          transform: translateY(0px);
+        }
+    }
+
+    .contact_flash_msg::before{
+        font-size: 30px;
+        font-weight: 900;
+        padding-right: 20px;
+        color: rgba(255,255,255, 0.9);
+        content: "\f058";
+        font-family: "Font Awesome 5 Free";
+    }
+
+    .contact_form {
+
+        padding-bottom: 50px;
+
+        label {
+            cursor: text;
+            position: relative;
+            left: 40px;
+            font-size: 80%;
+            color: silver;
+        }
+
+        label[for="input_content"] {
+            cursor: text;
+            position: relative;
+            top: 10px;
+            left: 30px;
+            font-size: 80%;
+            color: silver;
+        }
+
+        input,
+        textarea {
+            outline: 0;
+            border: none;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+            border-radius: 2px;
+            background-color: #e0e0e0;
+            padding: 7px;
+            margin-top: 25px;
+            width: 100%;
+            font-weight: 300;
+            color: inherit;
+        }
+
+        input:focus,
+        textarea:focus {
+            transition: 0.3s;
+            border-bottom: 1px solid rgba(0, 0, 0, 1);
+        }
+
+        //placeholderを非表示にする
+        input:focus::-webkit-input-placeholder,
+        textarea:focus::-webkit-input-placeholder {
+            color: transparent;
+            transition: 0.2s;
+        }
+
+        input:focus::-moz-placeholder,
+        textarea:focus::-moz-placeholder {
+            color: transparent;
+            transition: 0.2s;
+        }
+
+        input:focus::-ms-input-placeholder,
+        textarea:focus::-ms-input-placeholder {
+            color: transparent;
+            transition: 0.2s;
+        }
+
+        input:focus::placeholder,
+        textarea:focus::placeholder {
+            color: transparent;
+            transition: 0.2s;
+        }
+
+        .input_content {
+            margin-bottom: 50px;
+        }
+
+        .submit {
+            margin: 0 auto;
+            padding-bottom: 50px;
+            display: block;
+            position: relative;
+            width: 160px;
+            padding: 0.8em;
+            font-size: 1em;
+            text-align: center;
+            text-decoration: none;
+            background: transparent;
+            border: none;
+            color: #1B1B1B;
+        }
+
+        .submit:hover {
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .submit::after {
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            content: '';
+            width: 100%;
+            height: 1px;
+            background: #404040;
+            transform: scale(0, 1);
+            transform-origin: right top;
+            transition: transform .3s;
+        }
+
+        .submit:hover::after {
+            transform-origin: left top;
+            transform: scale(1, 1);
+        }
+    }
+}
+
+@media screen and (min-width:1000px) {
+
+    .section {
+        .contact_form {
+            width: 800px;
+            margin: 0 auto;
+        }
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .section {
+        .contact_form {
+            margin: 0 1% 0 1%;
+        }
+    }
+
+}

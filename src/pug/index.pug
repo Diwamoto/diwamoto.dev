@@ -1,25 +1,219 @@
-- var title='diwamoto.dev'
-- var description='My Portfolio.'
-- var domain='diwamoto.dev'
+include ./values
 doctype html
 html(lang='ja')
-    head
-        meta(charset="utf-8")
-        meta(name="viewport",content="width=device-width,initial-scale=1.0")
-        title #{title}
-        meta(name="description" content=`${description}`)
-        meta(property="og:title" content=`${title}`)
-        meta(property="og:description" content=`${description}`)
-        meta(property="og:image" content=`https://${domain}/img/ogp.png`)
-        meta(property="og:url" content=`${domain}`)
-        meta(property="og:type" content="website")
-        meta(name="twitter:card" content="summary_large_image")
-        link(rel='apple-touch-icon-precomposed', href=`https://${domain}/img/apple-touch-icon.png`)
-        link(rel='icon', href=`https://${domain}/favicon.ico`)
-    body
-        h1.title Hi, There!👋
-        h2.subtitle 素敵なポートフォリオを準備中です。💪
-        h3.subtitle.english I am preparing a awesome portfolio.😁
-        //- .one 私の名前はDaiki Iwamotoといいます。
-        //- .two 都内でソフトウェアエンジニアを目指して日々勉強しています。
-         
+  head
+    meta(charset="utf-8")
+    meta(name="viewport",content="width=device-width,initial-scale=1.0")
+    title #{title}
+    meta(name="description" content=`${description}`)
+    meta(property="og:title" content=`${title}`)
+    meta(property="og:description" content=`${description}`)
+    meta(property="og:image" content=`https://${domain}/img/ogp.png`)
+    meta(property="og:url" content=`${domain}`)
+    meta(property="og:type" content="website")
+    meta(name="twitter:card" content="summary_large_image")
+    link(rel='apple-touch-icon-precomposed', src=`https://${domain}/img/apple-touch-icon.png`)
+    link(rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons")
+    link(rel="stylesheet" href="https://fonts.googleapis.com/css?family=Gothic+A1")
+    link(rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato")
+    link(rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+JP")
+    link(rel="stylesheet" href="https://fonts.googleapis.com/css?family=Slabo+13px")
+    link(rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@1,200&display=swap")
+    link(rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cardo:ital@1&display=swap")
+    link(rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kalam:wght@700&display=swap")
+    link(rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sawarabi+Mincho&display=swap")
+    link(rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous")
+    link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css" integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw==" crossorigin="anonymous")
+    link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css" integrity="sha512-17EgCFERpgZKcm0j0fEq1YCJuyAWdz9KUtv1EjVuaOz8pDnh/0nZxmU6BBXwaaxqoi9PQXnRWqlcDB027hgv9A==" crossorigin="anonymous")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.3.2/jquery-migrate.min.js" integrity="sha512-3fMsI1vtU2e/tVxZORSEeuMhXnT9By80xlmXlsOku7hNwZSHJjwcOBpmy+uu+fyWwGCLkMvdVbHkeoXdAzBv+w==" crossorigin="anonymous")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js" integrity="sha512-HGOnQO9+SP1V92SrtZfjqxxtLmVzqZpjFFekvzZVWoiASSQgSr4cw9Kqd2+l8Llp4Gm0G8GIFJ4ddwZilcdb8A==" crossorigin="anonymous")
+    script(async src="https://www.googletagmanager.com/gtag/js?id=G-KQTBPSKH59")
+    script window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-KQTBPSKH59');
+  body
+    include ./navbar
+    .main_image
+      .main_title_box 
+        .title Diwamoto
+        .subtitle If you do it, it will happen. If you dont, you won't do it.
+        .subtitle - 為せば成る。為さねば成らぬ。-
+    .section#profile
+      .section_title Profile
+      .profile_wrapper
+        .profile_icon: img(src="/src/img/profile_icon.jpg")
+        .profile_name 名前
+          .profile_name_content 岩本大樹
+        .profile_edu 最終学歴
+          .profile_edu_content 九州工業大学 情報工学部 知能情報工学科 卒業
+        .profile_birthday 誕生日
+          .profile_birthday_content 1998/1/18
+        .profile_other その他
+          .profile_other_content 新卒で株式会社アウトソーシングテクノロジーに就職しました。<br>
+           | 大学四年の時に株式会社キャッチアップにアルバイトとして入社し、主にPHPを扱って開発、テスト業務を行っていました。またそこでBaserCMSと出会い、OSSを知りました。<br>
+           | 小学校から大学四年まで野球をしてました。大学では六大学リーグに所属し、福岡のヤフオクドームで試合をしたりしました。
+           | 受託開発企業に転職すべく活動中です。<br>
+           | コードを書いたり、ゲームをしたり、キーボードを作ったりすることが好きです。
+    .section#skill
+      .section_title Skill
+      .skill_wrapper
+        .skill_card1
+          .skill_name: <i class="fas fa-desktop"></i>フロントエンド
+          .skill_column Javascript 
+            .skill_column_fw Vue.js
+            .skill_column_fw jQuery 
+          .skill_column pug 
+          .skill_column sass
+          .skill_column TypeScript
+        .skill_card2
+          .skill_name: <i class="fas fa-server"></i>バックエンド
+          .skill_column PHP 
+            .skill_column_fw CakePHP 
+            .skill_column_fw BaserCMS 
+            .skill_column_fw Laravel
+          .skill_column Go 
+            .skill_column_fw Gin
+          .skill_column Java
+            .skill_column_fw JSP/servlet
+            .skill_column_fw Spring
+        .skill_card3
+          .skill_name: <i class="fas fa-database"></i>データベース
+          .skill_column Mysql 
+            .skill_column_fw 5.7
+          .skill_column Redis
+          .skill_column Oracle
+        .skill_card4
+          .skill_name: <i class="fas fa-file-code"></i>その他言語
+          .skill_column C/C++
+          .skill_column Prolog
+        .skill_card5
+          .skill_name: <i class="fab fa-windows"></i>OS
+          .skill_column Windows
+          .skill_column MacOS 
+          .skill_column Linux
+            .skill_column_fw Ubuntu 
+            .skill_column_fw CentOS 
+            .skill_column_fw AlpineLinux 
+            .skill_column_fw Barge
+        .skill_card6
+          .skill_name: <i class="fas fa-archive"></i>その他技術
+          .skill_column Docker
+          .skill_column CircleCI 
+          .skill_column Virtualbox 
+          .skill_column Vagrant 
+          .skill_column AWS 
+            .skill_column_fw EC2 
+            .skill_column_fw RDS
+          .skill_column Swagger 
+          .skill_column Git 
+          .skill_column GitLab/GitHub 
+          .skill_column Backlog 
+    .section#works 
+      .section_title Works
+      .works_wrapper
+        .works_preview
+          each work, index in works
+            .works_box 
+              a(href=work.url target="_brank")
+                img(src=work.icon)
+                div=work.name 
+                div=work.description
+        .works_slide
+          each work, index in works
+            .works_box 
+              img(src=work.icon)
+              div=work.name
+    .section#history
+      .section_title History
+      .history_wrapper 
+        .history_timeline
+        .history_item1
+          .history_timeline_marker
+          .history_time 1998/1/18
+          .history_content <i class="fas fa-birthday-cake"></i>誕生
+          .history_underline
+        .history_item2
+          .history_timeline_marker
+          .history_time 2008/3月
+          .history_content <i class="fas fa-baseball-ball"></i>地元のソフトボールクラブに入り、野球を始める。
+          .history_underline
+        .history_item3
+          .history_timeline_marker
+          .history_time 2014/8月
+          .history_content <i class="fas fa-laptop-code"></i>高校一年生の時、マインクラフトPEにハマり、マルチプレイ用のプラグインを作るためにPHPを独学で勉強し習得。
+          .history_underline
+        .history_item4
+          .history_timeline_marker
+          .history_time 2016/4月
+          .history_content <i class="fas fa-university"></i>九州工業大学 情報工学部 知能情報工学科 入学
+          .history_underline
+        .history_item5
+          .history_timeline_marker
+          .history_time 2017/月
+          .history_content <i class="fas fa-laptop-code"></i>九州工業大学 硬式野球部の公式サイトのリニューアルを担当。その際wordpressの開発を知る。
+          .history_underline
+        .history_item6
+          .history_timeline_marker
+          .history_time 2019/5/21
+          .history_content <i class="fas fa-hand-paper"></i>福岡六大学野球春季リーグの終了を持って、12年続けた野球を引退。
+          .history_underline
+        .history_item7
+          .history_timeline_marker
+          .history_time 2020/6/1
+          .history_content <i class="fas fa-user-check"></i>株式会社キャッチアップにアシスタントエンジニアとして入社。
+          .history_underline
+        .history_item8
+          .history_timeline_marker
+          .history_time 2020/3/25
+          .history_content <i class="fas fa-graduation-cap"></i>九州工業大学 情報工学部 知能情報工学科 卒業 / 株式会社キャッチアップを退社。
+          .history_underline
+        .history_item9
+          .history_timeline_marker
+          .history_time 2020/4/1
+          .history_content <i class="fas fa-truck-moving"></i>株式会社アウトソーシングテクノロジーに入社 / 上京！
+          .history_underline
+        .history_item10
+          .history_timeline_marker
+          .history_time 2020/10/18
+          .history_content <i class="far fa-sad-tear"></i>応用情報技術者試験を受験。 57.5点でギリギリ不合格...
+          .history_underline
+        .history_item11
+          .history_timeline_marker
+          .history_time 2021/2/6
+          .history_content <i class="material-icons">celebration</i>Webサービス「yource」リリース！
+          .history_underline
+        .history_item12
+          .history_timeline_marker
+          .history_time 2021/3/12
+          .history_content <i class="fas fa-award"></i>ITパスポート 取得
+          .history_underline
+        .history_now <i class="fas fa-check-circle"></i>現在
+      .history_summary
+        .history_comment Life goes on.
+        .history_label - 人生はまだ、始まったばかり。-
+    //- .section#blog
+    //-   .section_title Blog 
+    .section#contact
+      .contact_flash_msg 
+      .section_title Contact
+      .section_subtitle ご連絡はこちらもしくは下記のlinksよりよろしくお願いいたします。
+      form.contact_form
+        .form_input_item
+          input(name="name" class="input_name" placeholder="Name" required)
+          .underline
+        .form_input_item
+          input(name="email" class="input_email" placeholder="Email" pattern="^[0-9.a-z]+@[a-z0-9]+\.[0-9a-z]+\.[0-9a-z]+$" required)
+          .underline
+        .form_input_item
+          textarea(name="content" class="input_content" placeholder="Content" rows="4" cols="40" required)
+          .underline
+        button.submit Submit
+    .footer#links
+      .footer_title Links
+      .links
+        each link, index in links
+          div(class="link_" + link.name)
+            a(href=link.url target="_blank"): img(class="link_logo_" + link.name src="/src/img/links/" + link.icon + ".png")
+      .copyright Copyright © 2021 Diwamoto.
+    button(class="btn_top"): i(class="fas fa-angle-double-up fa-lg")
+        
+            
