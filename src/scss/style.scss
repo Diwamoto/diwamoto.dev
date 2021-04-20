@@ -28,7 +28,7 @@ body {
 
   .main_image {
 
-    background-image: url("/src/img/top.jpeg");
+    background-image: url("https://i.postimg.cc/0QXQTtn2/top.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -46,6 +46,8 @@ body {
         font-family: 'Lato';
         animation: top_title;
         animation-duration: 1s;
+        transform: translateY(-25px);
+        opacity: 0%;
         color: white;
         font-size: 3.5em;
         text-align: center;
@@ -85,7 +87,7 @@ body {
 @media screen and (min-width:920px) {
   .main_image {
 
-    background-image: url("/src/img/top.jpeg");
+    background-image: url("https://i.postimg.cc/0QXQTtn2/top.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
