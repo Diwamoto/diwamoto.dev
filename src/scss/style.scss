@@ -46,8 +46,6 @@ body {
         font-family: 'Lato';
         animation: top_title;
         animation-duration: 1s;
-        transform: translateY(-25px);
-        opacity: 0%;
         color: white;
         font-size: 3.5em;
         text-align: center;
@@ -142,12 +140,12 @@ body {
 
 @keyframes top_title {
   0% {
-    opacity: 0%;
+    opacity: 0;
     transform: translateY(-25px);
   }
 
   100% {
-    opacity: 100%;
+    opacity: 1;
     transform: translateY(0px);
   }
 }
