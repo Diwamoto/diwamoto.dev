@@ -6,7 +6,6 @@ const {
 } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const TerserPlugin = require('terser-webpack-plugin');
-const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const TS_PATH = path.join(__dirname, './src/ts');
 const PUG_PATH = path.join(__dirname, './src/pug');
 const SCSS_PATH = path.join(__dirname, './src/scss');
@@ -25,7 +24,6 @@ module.exports = {
         assetModuleFilename: "img/[name][ext]",
     },
     devServer: {
-        contentBase: path.join(__dirname, 'src'),
         port: 3000,
         open: true
     },
@@ -80,10 +78,8 @@ module.exports = {
                     {
                         loader: 'sass-loader',
                         options: {
-                            sassOptions: {
-                                outputStyle: 'expanded',
-                                fiber: require('fibers'),
-                            },
+                            sourceMap: true,
+                            implementation: require("sass"),
                         },
                     },
                 ]
@@ -126,7 +122,6 @@ module.exports = {
     optimization: {
         minimizer: [
           new TerserPlugin(),
-          new OptimizeCSSAssetsPlugin()
         ]
       }
 
