@@ -1,0 +1,7 @@
+.footer#links
+    .footer_title Links
+    .links
+        each link, index in links
+            div(class="link_" + link.name)
+                a(href=link.url target="_blank"): img(class="link_logo_" + link.name src="/src/img/links/" + link.icon + ".png")
+    .copyright Copyright © 2021 Diwamoto.

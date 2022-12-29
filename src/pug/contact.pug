@@ -1,0 +1,15 @@
+.section#contact
+    .contact_flash_msg 
+    .section_title Contact
+    .section_subtitle ご連絡はこちらもしくは下記のlinksよりよろしくお願いいたします。
+    form.contact_form
+        .form_input_item
+            input(name="name" class="input_name" placeholder="Name *" required)
+            .underline
+        .form_input_item
+            input(name="email" class="input_email" placeholder="Email *" pattern="^[0-9.a-z]+@[a-z0-9]+\.[0-9a-z]+\.[0-9a-z]+$" required)
+            .underline
+        .form_input_item
+            textarea(name="content" class="input_content" placeholder="Content *" rows="4" cols="40" required)
+            .underline
+        button.submit Submit

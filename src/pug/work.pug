@@ -1,0 +1,15 @@
+.section#works 
+    .section_title Works
+    .works_wrapper
+        .works_preview
+            each work, index in works
+                .works_box 
+                    a(href=work.url target="_brank")
+                        img(src=work.icon)
+                        div=work.name 
+                        div=work.description
+        .works_slide
+            each work, index in works
+                .works_box 
+                    img(src=work.icon)
+                    div=work.name

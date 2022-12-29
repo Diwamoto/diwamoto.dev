@@ -14,7 +14,8 @@ const IMG_PATH = path.join(__dirname, "./src/img");
 
 module.exports = {
     externals: {
-        "jquery": '$'
+        "jquery": '$',
+        'smtp': 'Email',
     },
     mode: 'production',
     entry: TS_PATH + '/index.ts',
