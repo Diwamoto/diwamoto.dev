@@ -13,7 +13,7 @@ import '/src/img/works/docker.png';
 import '/src/img/works/yource.png';
 import '/src/img/works/ownly.png';
 
-declare var SLACK_URL: string;
+
 
 var reach_flg = false;
 
@@ -139,61 +139,7 @@ $(function () {
         $('.nav_sp').toggleClass('nav_sp_appear')
     })
 
-    //formの送信をキャンセルしてslackに通知を飛ばし、成功のポップアップを出す
-    $('.contact_form').on('submit', (e) => {
-        e.preventDefault()
-        const data = {
-            name: $('.input_name').val(),
-            email: $('.input_email').val(),
-            content: $('.input_content').val()
-        }
-        $.ajax({
-            type: 'POST',
-            url: SLACK_URL,
-            data: 'payload=' + JSON.stringify({
-                text: "<@U013BDR327K>\n *お問い合わせを受信しました。* \n```\n氏名：" + data["name"] + "\nメールアドレス：" + data["email"] + "\nお問い合わせ内容：" + data["content"] + "\n```"
-            }),
-        }).done(() => {
-            //通知メッセージを表示し、5秒後に非表示にする
-            $('.contact_flash_msg').text("お問い合わせを送信しました。")
-            $('.contact_flash_msg').removeClass("fadeout").addClass("fadein")
-            setTimeout(function () {
-                $('.contact_flash_msg').removeClass("fadein").addClass("fadeout")
-            }, 3000)
 
-            //お問い合わせを何度も送信しないように内容を削除する。
-            $('.input_name').val("")
-            $('.input_email').val("")
-            $('.input_content').val("")
-
-            //問い合わせの確認メールを送信する。
-            // Email.send({
-            //     SecureToken: "966b4b3b-f91e-4161-ba33-617517c60ad1",
-            //     To : data["email"],
-            //     From : "info@diwamoto.dev",
-            //     Subject : "[diwamoto.dev]お問い合わせを送信しました。",
-            //     Body : 
-            //         "この度は、お問い合わせ頂き誠にありがとうございます。\n" +
-            //         "2営業日以内にご連絡差し上げますので今しばらくお待ちくださいませ。\n\n" + 
-            //         "お問い合わせ内容\n\n" + 
-            //         "---------------------------\n" +
-            //         "お名前：" + data["name"] + "\n" + 
-            //         "メールアドレス：" + data["email"] + "\n" + 
-            //         "お問い合わせ内容：" + data["content"] + "\n" + 
-            //         "---------------------------\n\n\n\n" +
-            //         "このメールはdiwamto.devより自動送信されています。"
-            // });
-
-
-        });
-
-
-    })
-
-    //通知はクリックしたら消える
-    $('.contact_flash_msg').on('click', function () {
-        $('.contact_flash_msg').removeClass("fadein").addClass("fadeout")
-    })
 
 
     //works カルーセル設定
